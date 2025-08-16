@@ -5,10 +5,10 @@
 ---
 
 ### 🧑‍💻 About Me
-- 🌱 I’m currently learning **React.js, TypeScript, TailwindCSS**
-- 💬 Ask me about **Python**
+- 🌱 I’m currently learning **React.js, TypeScript, TailwindCSS, Python**
+- 💬 Ask me about **Python, AI**
 - 📫 Reach me at: **phuongdong1741@gmail.com**
-- ⚡ Fun fact: *I love coding at night 🌙*
+- ⚡ Fun fact: *I love You if You love Me*
 
 ---
 
