@@ -21,8 +21,8 @@
 
 ### 📊 GitHub Stats
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=judebellingdong&show_icons=true&theme=radical" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=judebellingdong&layout=compact&theme=radical" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=napole-dong&show_icons=true&theme=radical" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=napole-dong&layout=compact&theme=radical" height="150"/>
 </p>
 
 ---
@@ -34,5 +34,5 @@
 
 ### 🌍 Visitors
 <p align="left">
-  <img src="https://komarev.com/ghpvc/?username=judebellingdong&label=Profile%20views&color=0e75b6&style=flat" alt="views" />
+  <img src="https://komarev.com/ghpvc/?username=napole-dong&label=Profile%20views&color=0e75b6&style=flat" alt="views" />
 </p>
