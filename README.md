@@ -1,6 +1,6 @@
 <!-- Header -->
-<h1 align="center">Hi 👋, I'm NapoleĐông</h1>
-<h3 align="center">🚀 A passionate developer from Vietnam</h3>
+<h1 align="center">❄️ I'm Huynh Nguyen Phuong Dong</h1>
+<h3 align="center">⌨️ A passionate developer from Vietnam</h3>
 
 ---
 
