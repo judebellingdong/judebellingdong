@@ -7,7 +7,7 @@
 ### 🧑‍💻 About Me
 - 🌱 I’m passionate about **AI, Python**
 - 📫 Reach me at: **phuongdong1741@gmail.com**
-- ⚡ Fun fact: *I love You if You love Me*
+- ⚡ Fun fact: *powered by AI*
 
 ---
 
