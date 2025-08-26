@@ -13,7 +13,7 @@
 
 ### 🔧 Tech Stack
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=react,tailwind,js,ts,python,c,cpp,c#,java" />
+  <img src="https://skillicons.dev/icons?i=react,tailwind,js,ts,python,c,cpp,c#,java />
 </p>
 
 ---
