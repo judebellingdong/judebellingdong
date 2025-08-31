@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 env:
-  START_DATE: "2025-08-15"      # <<< đổi ngày bắt đầu ở đây nếu muốn
+  START_DATE: "2024-01-01"      # <<< đổi ngày bắt đầu ở đây nếu muốn
   LANG_COUNT: "5"               # số ngôn ngữ hiển thị
   SECTION_NAME: "waka"          # phải trùng với comment trong README
   BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"   # thanh tiến độ
