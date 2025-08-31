@@ -29,7 +29,8 @@
 ---
 
 ### ⏱ WakaTime Stats
-![WakaTime](https://wakatime.com/share/@efdc30fa-353a-4ad2-b91b-7154399eb7f6/3f8f6e88-c4f1-44ba-bdd1-13a14a69e089.svg)
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
 
 ---
 
