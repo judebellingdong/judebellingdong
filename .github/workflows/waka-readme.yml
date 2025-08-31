@@ -1,0 +1,31 @@
+name: Waka Readme
+
+on:
+  workflow_dispatch:          # cho phép chạy thủ công
+  schedule:
+    - cron: "0 0 * * *"       # 00:00 UTC = 07:00 sáng VN mỗi ngày
+
+jobs:
+  update-readme:
+    name: Update WakaTime stats in README
+    runs-on: ubuntu-latest
+    steps:
+      - uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+
+          # --- Tuỳ chọn hiển thị (có thể chỉnh) ---
+          SHOW_TITLE: "true"
+          SECTION_NAME: "waka"              # khớp với placeholder mặc định ở README
+          TIME_RANGE: "last_7_days"         # last_7_days | last_30_days | last_year | all_time
+          LANG_COUNT: "5"                   # số dòng/nhóm ngôn ngữ
+          SHOW_TIME: "true"                 # hiện thời gian từng dòng
+          SHOW_TOTAL: "true"                # hiện tổng
+          STOP_AT_OTHER: "true"             # dừng khi gặp "Other" cho gọn
+          CODE_LANG: "txt"                  # khối code là txt (đỡ màu mè)
+          BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"        # thanh tiến độ kiểu pixel
+
+          # --- Tuỳ chọn commit (không bắt buộc) ---
+          COMMIT_MESSAGE: "chore: update WakaTime stats"
+          TARGET_BRANCH: "main"             # đổi thành 'master' nếu repo dùng master
+          TARGET_PATH: "README.md"
