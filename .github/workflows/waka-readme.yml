@@ -1,29 +1,26 @@
-name: Waka Readme
+name: WakaTime (custom date range)
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"   # 07:00 sáng VN mỗi ngày
+    - cron: "0 0 * * *"   # 00:00 UTC = 07:00 sáng VN mỗi ngày
 
 permissions:
   contents: write
 
+env:
+  START_DATE: "2025-08-15"      # <<< đổi ngày bắt đầu ở đây nếu muốn
+  LANG_COUNT: "5"               # số ngôn ngữ hiển thị
+  SECTION_NAME: "waka"          # phải trùng với comment trong README
+  BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"   # thanh tiến độ
+  WIDTH: "28"                   # độ dài thanh tiến độ (ký tự)
+
 jobs:
-  update-readme:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - uses: athul/waka-readme@master
-        with:
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          SECTION_NAME: "waka"
-          TIME_RANGE: "all_time"   # chính xác
-          SHOW_TITLE: "true"
-          LANG_COUNT: "5"
-          SHOW_TIME: "true"
-          SHOW_TOTAL: "true"
-          STOP_AT_OTHER: "true"
-          CODE_LANG: "txt"
-          BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"
-          TARGET_BRANCH: "main"
-          TARGET_PATH: "README.md"
-          COMMIT_MESSAGE: "chore: update WakaTime stats"
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ensure secret exists
+        run
