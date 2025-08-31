@@ -1,26 +1,58 @@
-name: WakaTime (custom date range)
+name: Waka Readme (All-time)
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"   # 00:00 UTC = 07:00 sáng VN mỗi ngày
+    - cron: "0 0 * * *"   # 00:00 UTC ~ 07:00 VN mỗi ngày
 
 permissions:
   contents: write
 
 env:
-  START_DATE: "2024-01-01"      # <<< đổi ngày bắt đầu ở đây nếu muốn
-  LANG_COUNT: "5"               # số ngôn ngữ hiển thị
-  SECTION_NAME: "waka"          # phải trùng với comment trong README
-  BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"   # thanh tiến độ
-  WIDTH: "28"                   # độ dài thanh tiến độ (ký tự)
+  SECTION_NAME: "waka"        # phải khớp placeholder trong README
+  TARGET_PATH: "README.md"
+  LANG_COUNT: "5"             # top N ngôn ngữ
+  BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"  # ký tự thanh tiến độ
+  BAR_WIDTH: "25"             # độ dài thanh tiến độ
 
 jobs:
-  update:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Ensure secret exists
-        run
+      - name: Fail fast if secret missing
+        run: |
+          if [ -z "${{ secrets.WAKATIME_API_KEY }}" ]; then
+            echo "Missing WAKATIME_API_KEY secret"; exit 1; fi
+
+      - name: Generate all-time WakaTime stats and update README
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os, json, math, re, urllib.request
+
+          API = "https://wakatime.com/api/v1/users/current/stats?all_time_since_today=true"
+          req = urllib.request.Request(API, headers={"Authorization": f"Bearer {os.environ['WAKATIME_API_KEY']}"})
+          with urllib.request.urlopen(req) as r:
+              data = json.load(r)["data"]
+
+          # Lấy danh sách languages (all-time)
+          langs = data.get("languages", [])
+          lang_count = int(os.getenv("LANG_COUNT","5"))
+          langs = langs[:lang_count]
+
+          # Helper: format thời gian đẹp
+          def fmt_secs(sec):
+              sec = int(sec)
+              h = sec//3600; m = (sec%3600)//60
+              if h and m: return f"{h} hrs {m} mins"
+              if h:       return f"{h} hrs"
+              if m:       return f"{m} mins"
+              return f"{sec}s"
+
+          # Thanh tiến độ
+          blocks = os.getenv("BLOCKS","⣀⣄⣤⣦⣶⣷⣿")
+          width  = int(os.getenv("
